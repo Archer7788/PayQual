@@ -57,7 +57,7 @@ function App() {
     try {
 
       const response = await axios.get(
-        "http://127.0.0.1:8000/reports"
+        "https://payqual-backend.onrender.com/reports"
       );
 
       setHistory(response.data);
@@ -92,7 +92,7 @@ function App() {
     try {
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/analyze",
+        "https://payqual-backend.onrender.com/analyze",
         formData,
         {
           headers: {

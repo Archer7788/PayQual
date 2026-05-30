@@ -5,7 +5,7 @@ const handleExport = async (id) => {
   try {
 
     const response = await axios.get(
-      `http://127.0.0.1:8000/export/${id}`,
+      `https://payqual-backend.onrender.com/export/${id}`,
       {
         responseType: "blob",
       }
