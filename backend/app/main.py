@@ -26,7 +26,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://pay-qual.vercel.app/"
+        "https://pay-qual.vercel.app"
+        
     ],
     allow_credentials=True,
     allow_methods=["*"],
