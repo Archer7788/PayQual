@@ -63,9 +63,7 @@ async def analyze_dataset(file: UploadFile = File(...)):
     outlier_count = (
     detect_outliers(df)
     )  
-    ai_summary = generate_ai_summary(
-    report
-    )
+    ai_summary = "AI Summary Temporarily Disabled"
     
 
     # DATABASE SESSION
