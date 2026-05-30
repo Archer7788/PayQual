@@ -8,8 +8,6 @@ import QualityChart from "./components/QualityChart";
 import Recommendations from "./components/Recommendations";
 import ReportsTable from "./components/ReportsTable";
 import ValidationResults from "./components/ValidationResults";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
 
 function App() {
 
@@ -19,31 +17,6 @@ function App() {
 
   const [history, setHistory] = useState([]);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(
-  !!sessionStorage.getItem("token")
-);
-
-const [showRegister, setShowRegister] =
-  useState(false);
-useEffect(() => {
-
-  const handler = () => {
-    setShowRegister(true);
-  };
-
-  window.addEventListener(
-    "show-register",
-    handler
-  );
-
-  return () => {
-    window.removeEventListener(
-      "show-register",
-      handler
-    );
-  };
-
-}, []);
   const chartData = report
     ? [
         {
@@ -140,66 +113,9 @@ useEffect(() => {
       alert("Upload failed");
     }
   };
-  if (!isLoggedIn) {
-
-  if (showRegister) {
-
-    return (
-      <div>
-
-        <RegisterPage />
-
-        <div className="
-          text-center
-          mt-4
-        ">
-          <button
-            className="
-              text-blue-600
-            "
-            onClick={() =>
-              setShowRegister(false)
-            }
-          >
-            Already have an account?
-            Login
-          </button>
-        </div>
-
-      </div>
-    );
-  }
 
   return (
-    <div>
 
-      <LoginPage
-        onLogin={() =>
-          setIsLoggedIn(true)
-        }
-      />
-
-      <div className="
-        text-center
-        mt-4
-      ">
-        <button
-          className="
-            text-blue-600
-          "
-          onClick={() =>
-            setShowRegister(true)
-          }
-        >
-          Create Account
-        </button>
-      </div>
-
-    </div>
-  );
-}
-  return (
-      
     <div className="
       min-h-screen
       bg-gray-100
@@ -217,31 +133,7 @@ useEffect(() => {
         ">
           PayQual Dashboard
         </h1>
-        <div className="
-  flex
-  justify-end
-  mb-6
-">
 
-  <button
-    className="
-      bg-red-500
-      text-white
-      px-4
-      py-2
-      rounded
-    "
-    onClick={() => {
-
-      sessionStorage.removeItem("token");
-
-      setIsLoggedIn(false);
-    }}
-  >
-    Logout
-  </button>
-
-</div>
         <UploadSection
           handleFileChange={
             handleFileChange

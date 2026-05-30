@@ -9,7 +9,9 @@ from app.api.auth import router as auth_router
 
 from app.database.database import engine
 from app.database.database import Base
-from app.models.user_model import Base
+
+from app.models.user_model import User
+from app.models.report_model import QualityReport
 
 Base.metadata.create_all(bind=engine)
 
